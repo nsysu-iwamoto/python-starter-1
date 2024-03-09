@@ -1,0 +1,45 @@
+name: Test
+
+permissions:
+  contents: read
+  issues: read
+  checks: write
+  pull-requests: write
+
+on:
+  push:
+  pull_request:
+    types: [opened, reopened]
+  workflow_dispatch:
+
+jobs:
+  test:
+    name: Run unit tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.8"
+      - name: Set up packages
+        run: pip install -r requirements.txt
+      - name: Run tests with pytest
+        run: python -m pytest --junitxml=junit/test-results.xml
+      #      - name: Upload test results
+      #        uses: actions/upload-artifact@v4
+      #        with:
+      #          name: pytest-results
+      #          path: junit/test-results.xml
+      # Use always() to always run this step to publish test results when there are test failures
+      #        if: ${{ always() }}
+      - name: Publish test report
+        uses: EnricoMi/publish-unit-test-result-action@v2
+        with:
+          files: junit/test-results.xml
+          check_name: Automatic Test Report
+          comment_mode: always
+          job_summary: true
+          check_run: true
+          fail_on: "errors"
+        if: ${{ always() }}
