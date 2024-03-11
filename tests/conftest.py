@@ -1,7 +1,18 @@
 from types import ModuleType
-from typing import Any
+from typing import Any, List
+import re
 
 import pytest
+
+
+def remove_trailing(text: str) -> str:
+    # Remove trailing spaces of each line and trailing \n of the whole text.
+    text = re.sub(r"\s$", "", text.rstrip(), flags=re.M)
+    return text
+
+
+def strip_all_lines(text: str) -> List[str]:
+    return [line.strip() for line in text.strip().splitlines()]
 
 
 def has_function(module: ModuleType, name: str) -> Any:
