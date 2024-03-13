@@ -1,11 +1,11 @@
 # Task 01: Hello World!
 
-Open `01_hello.py` and edit the file to do the following tasks.
+Open `task01_hello.py` and edit the file to do the following tasks.
 
 ## Task 01a
 
 Write a program that prints `Hello, World!` to the console.
-That is, if you execute `python3 01_hello.py` from the command line,
+That is, if you execute `python3 task01_hello.py` from the command line,
 the output should be `Hello, World!`
 
 Here, you should not modify anything outside the `hello_world()` function.
@@ -21,4 +21,4 @@ You also need to modify "the main part" of the file.
 
 Now you want to customize how many times it prints.
 Add a function `hello_world_n_times()` that first asks the user how many times it should print `Hello, World!` and then prints it that many times.
-You may see `02_iteration.py` for how to ask for inputs.
+You may see `task02_iteration.py` for how to ask for inputs.

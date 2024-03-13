@@ -1,6 +1,6 @@
 # Task 02: Iteration
 
-Open `02_iteration.py` and edit the file to do the following tasks.
+Open `task02_iteration.py` and edit the file to do the following tasks.
 
 ## Task 02a
 

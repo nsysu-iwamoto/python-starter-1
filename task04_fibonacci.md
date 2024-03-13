@@ -1,6 +1,6 @@
 # Task 04: Fibonacci
 
-Open `04_fibonacci.py` and edit the file to do the following tasks.
+Open `task04_fibonacci.py` and edit the file to do the following tasks.
 Here, we assume Fibonacci sequence begins with 1, 1, 2, 3, 5, and 8.
 
 ## Task 04a

@@ -1,6 +1,6 @@
 # Task 03: FizzBuzz
 
-Open `03_fizzbuzz.py` and edit the file to do the following tasks.
+Open `task03_fizzbuzz.py` and edit the file to do the following tasks.
 
 ## Task 03a
 
