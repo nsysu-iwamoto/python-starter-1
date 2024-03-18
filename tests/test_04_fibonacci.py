@@ -114,6 +114,7 @@ def test_fibonacci_to(capsys):
 
 @pytest.mark.timeout(1)
 def test_fibonacci_to_extreme(capsys):
+    skip_if_no_function(module, "fibonacci_to")
     sys.set_int_max_str_digits(10000)
     s = 1
     for i in range(2, 1000):

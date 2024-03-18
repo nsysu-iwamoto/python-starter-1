@@ -67,5 +67,5 @@ def test_hello_world_n_times_more(capsys, monkeypatch):
         actual = remove_trailing(out)
         assert actual.endswith(hw), f"output should end with '{hw}'"
         assert actual.count(hw) == n, f"output should have {n} '{hw}' when input {n}"
-        expected = (expected_hello_world_1 * n).strip()
+        expected = "\n".join(expected_hello_world_1 for i in range(n)).strip()
         assert actual.endswith(expected)
