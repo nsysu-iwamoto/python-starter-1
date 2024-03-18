@@ -1,7 +1,8 @@
 import io
-from conftest import assert_has_function, skip_if_no_function, remove_trailing
 
-module = __import__("01_hello")
+from conftest import assert_has_function, optional, remove_trailing, skip_if_no_function
+
+import task01_hello as task
 
 hw = "Hello, World!"
 expected_hello_world_1 = "Hello, World!\n".strip()
@@ -30,16 +31,17 @@ Hello, World!
 
 
 def test_hello_world(capsys):
-    assert_has_function(module, "hello_world")
-    module.hello_world()
+    assert_has_function(task, "hello_world")
+    task.hello_world()
     out, _ = capsys.readouterr()
     actual = remove_trailing(out)
     assert actual == expected_hello_world_1
 
 
+@optional
 def test_hello_world_three_times(capsys):
-    skip_if_no_function(module, "hello_world_three_times")
-    module.hello_world_three_times()
+    skip_if_no_function(task, "hello_world_three_times")
+    task.hello_world_three_times()
     out, _ = capsys.readouterr()
     actual = remove_trailing(out)
     assert actual.endswith(hw), f"output should end with '{hw}'"
@@ -47,10 +49,11 @@ def test_hello_world_three_times(capsys):
     assert actual.endswith(expected_hello_world_3)
 
 
+@optional
 def test_hello_world_n_times(capsys, monkeypatch):
-    skip_if_no_function(module, "hello_world_n_times")
+    skip_if_no_function(task, "hello_world_n_times")
     monkeypatch.setattr("sys.stdin", io.StringIO("4"))
-    module.hello_world_n_times()
+    task.hello_world_n_times()
     out, _ = capsys.readouterr()
     actual = remove_trailing(out)
     assert actual.endswith(hw), f"output should end with '{hw}'"
@@ -58,11 +61,12 @@ def test_hello_world_n_times(capsys, monkeypatch):
     assert actual.endswith(expected_hello_world_4)
 
 
+@optional
 def test_hello_world_n_times_more(capsys, monkeypatch):
     for n in [10, 50, 200]:
-        skip_if_no_function(module, "hello_world_n_times")
+        skip_if_no_function(task, "hello_world_n_times")
         monkeypatch.setattr("sys.stdin", io.StringIO(f"{n}"))
-        module.hello_world_n_times()
+        task.hello_world_n_times()
         out, _ = capsys.readouterr()
         actual = remove_trailing(out)
         assert actual.endswith(hw), f"output should end with '{hw}'"

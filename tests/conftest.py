@@ -1,8 +1,23 @@
+import re
 from types import ModuleType
 from typing import Any, List
-import re
 
 import pytest
+
+
+def pytest_addoption(parser):
+    parser.addoption(
+        "--optional",
+        action="store_true",
+        default=False,
+        help="Run tests for optional assignments",
+    )
+
+
+optional = pytest.mark.skipif(
+    "not config.getoption('--optional')",
+    reason="optional; run when --optional is given",
+)
 
 
 def remove_trailing(text: str) -> str:

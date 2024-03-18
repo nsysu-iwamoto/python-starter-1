@@ -1,11 +1,12 @@
 from conftest import (
     assert_has_function,
-    skip_if_no_function,
+    optional,
     remove_trailing,
+    skip_if_no_function,
     strip_all_lines,
 )
 
-module = __import__("03_fizzbuzz")
+import task03_fizzbuzz as task
 
 fizzbuzz_3_expected = """
 1
@@ -24,25 +25,25 @@ Fizz
 
 
 def test_fizzbuzz_3(capsys):
-    assert_has_function(module, "fizzbuzz")
-    module.fizzbuzz(3)
+    assert_has_function(task, "fizzbuzz")
+    task.fizzbuzz(3)
     out, _ = capsys.readouterr()
     actual = remove_trailing(out)
     assert actual.endswith(fizzbuzz_3_expected), "incorrect output for input 3"
 
 
 def test_fizzbuzz_7(capsys):
-    assert_has_function(module, "fizzbuzz")
-    module.fizzbuzz(7)
+    assert_has_function(task, "fizzbuzz")
+    task.fizzbuzz(7)
     out, _ = capsys.readouterr()
     actual = remove_trailing(out)
     assert actual.endswith(fizzbuzz_7_expected), "incorrect output for input 7"
 
 
 def test_fizzbuzz_n_more(capsys):
-    assert_has_function(module, "fizzbuzz")
+    assert_has_function(task, "fizzbuzz")
     for n in [10, 20, 100, 2000]:
-        module.fizzbuzz(n)
+        task.fizzbuzz(n)
         out, _ = capsys.readouterr()
         lines = strip_all_lines(out)
         start = -999
@@ -64,9 +65,10 @@ def test_fizzbuzz_n_more(capsys):
                 assert line == f"{i - start}", f"{i - start} is wrong?"
 
 
+@optional
 def test_nabeatsu_4(capsys):
-    skip_if_no_function(module, "nabeatsu")
-    module.nabeatsu(4)
+    skip_if_no_function(task, "nabeatsu")
+    task.nabeatsu(4)
     out, _ = capsys.readouterr()
     actual = remove_trailing(out)
     assert "1\n2\n" in actual, "Nabeatsu says 1 and 2 in a normal way"
@@ -74,9 +76,10 @@ def test_nabeatsu_4(capsys):
     assert "\n3\n" not in actual, "Nabeatsu says 3 in a foolish way"
 
 
+@optional
 def test_nabeatsu_16(capsys):
-    skip_if_no_function(module, "nabeatsu")
-    module.nabeatsu(16)
+    skip_if_no_function(task, "nabeatsu")
+    task.nabeatsu(16)
     out, _ = capsys.readouterr()
     lines = strip_all_lines(out)
     for i in [3, 6, 9, 12, 15, 13]:
@@ -85,10 +88,11 @@ def test_nabeatsu_16(capsys):
         assert f"{i}" in lines, f"Nabeatsu says {i} in a normal way"
 
 
+@optional
 def test_nabeatsu_more(capsys):
-    skip_if_no_function(module, "nabeatsu")
+    skip_if_no_function(task, "nabeatsu")
     for n in [20, 100, 4000]:
-        module.nabeatsu(n)
+        task.nabeatsu(n)
         out, _ = capsys.readouterr()
         lines = strip_all_lines(out)
         start = -999

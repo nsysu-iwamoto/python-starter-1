@@ -1,9 +1,10 @@
-import pytest
 import io
-from conftest import assert_has_function, skip_if_no_function, remove_trailing
 import re
 
-module = __import__("02_iteration")
+import pytest
+from conftest import assert_has_function, optional, remove_trailing, skip_if_no_function
+
+import task02_iteration as task
 
 one_to_10_expected = "1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n".strip()
 one_to_4_expected = "1\n2\n3\n4\n".strip()
@@ -17,17 +18,17 @@ one_to_5_ordinal_expected = """
 
 
 def test_show_one_to_ten(capsys):
-    assert_has_function(module, "show_one_to_ten")
-    module.show_one_to_ten()
+    assert_has_function(task, "show_one_to_ten")
+    task.show_one_to_ten()
     out, _ = capsys.readouterr()
     actual = remove_trailing(out)
     assert actual == one_to_10_expected
 
 
 def test_show_one_to_n(capsys, monkeypatch):
-    assert_has_function(module, "show_one_to_n")
+    assert_has_function(task, "show_one_to_n")
     monkeypatch.setattr("sys.stdin", io.StringIO("4"))
-    module.show_one_to_n()
+    task.show_one_to_n()
     out, _ = capsys.readouterr()
     actual = remove_trailing(out)
     assert actual.endswith(one_to_4_expected), "incorrect output for input 4"
@@ -35,9 +36,9 @@ def test_show_one_to_n(capsys, monkeypatch):
 
 @pytest.mark.parametrize("n", [1, 10, 200, 999])
 def test_show_one_to_n_more(capsys, monkeypatch, n):
-    assert_has_function(module, "show_one_to_n")
+    assert_has_function(task, "show_one_to_n")
     monkeypatch.setattr("sys.stdin", io.StringIO(f"{n}"))
-    module.show_one_to_n()
+    task.show_one_to_n()
     out, _ = capsys.readouterr()
     actual = remove_trailing(out)
     assert actual.endswith(str(n)), f"output should end with {n} if input is {n}"
@@ -45,31 +46,34 @@ def test_show_one_to_n_more(capsys, monkeypatch, n):
         assert f"{i}\n{i + 1}" in actual
 
 
+@optional
 def test_show_one_to_n_ordinal_5(capsys, monkeypatch):
-    skip_if_no_function(module, "show_one_to_n_ordinal")
+    skip_if_no_function(task, "show_one_to_n_ordinal")
     monkeypatch.setattr("sys.stdin", io.StringIO("5"))
-    module.show_one_to_n_ordinal()
+    task.show_one_to_n_ordinal()
     out, _ = capsys.readouterr()
     actual = remove_trailing(out)
     assert actual.endswith("5th"), "output should end with '5th' if input is 5."
     assert one_to_5_ordinal_expected in actual
 
 
+@optional
 def test_show_one_to_n_ordinal_1(capsys, monkeypatch):
-    skip_if_no_function(module, "show_one_to_n_ordinal")
+    skip_if_no_function(task, "show_one_to_n_ordinal")
     monkeypatch.setattr("sys.stdin", io.StringIO("1"))
-    module.show_one_to_n_ordinal()
+    task.show_one_to_n_ordinal()
     out, _ = capsys.readouterr()
     actual = remove_trailing(out)
     assert actual.endswith("1st"), "output should end with '1st' if input is 1."
     assert "2nd" not in actual
 
 
+@optional
 def test_show_one_to_n_ordinal_more(capsys, monkeypatch):
     for n in [5, 20, 100, 200]:
-        skip_if_no_function(module, "show_one_to_n_ordinal")
+        skip_if_no_function(task, "show_one_to_n_ordinal")
         monkeypatch.setattr("sys.stdin", io.StringIO(f"{n}"))
-        module.show_one_to_n_ordinal()
+        task.show_one_to_n_ordinal()
         out, _ = capsys.readouterr()
         actual = remove_trailing(out)
 
