@@ -52,7 +52,13 @@ def test_hello_world_three_times(capsys):
 @optional
 def test_hello_world_n_times(capsys, monkeypatch):
     skip_if_no_function(task, "hello_world_n_times")
-    monkeypatch.setattr("sys.stdin", io.StringIO("4"))
+
+    def fake_input(n):
+        # absorb stdout before input
+        _ = capsys.readouterr()
+        return n
+
+    monkeypatch.setattr("builtins.input", lambda s: fake_input(4))
     task.hello_world_n_times()
     out, _ = capsys.readouterr()
     actual = remove_trailing(out)
@@ -63,9 +69,15 @@ def test_hello_world_n_times(capsys, monkeypatch):
 
 @optional
 def test_hello_world_n_times_more(capsys, monkeypatch):
+    skip_if_no_function(task, "hello_world_n_times")
+
+    def fake_input(n):
+        # absorb stdout before input
+        _ = capsys.readouterr()
+        return n
+
     for n in [10, 50, 200]:
-        skip_if_no_function(task, "hello_world_n_times")
-        monkeypatch.setattr("sys.stdin", io.StringIO(f"{n}"))
+        monkeypatch.setattr("builtins.input", lambda s: fake_input(n))
         task.hello_world_n_times()
         out, _ = capsys.readouterr()
         actual = remove_trailing(out)
