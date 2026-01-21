@@ -252,10 +252,12 @@ print(f"Debug: x = {x}")  # See what values variables have
 
 If you're stuck:
 
-1. Read the error message carefully
-2. Check the documentation in this folder
-3. Ask your instructor or classmates
-4. Search online for Python concepts you don't understand
+1. **Check the [Glossary](glossary.md)** - Simple explanations of programming terms
+2. **Check the [Troubleshooting Guide](troubleshooting.md)** - Common problems and solutions
+3. Read the error message carefully - it tells you what's wrong
+4. Check the documentation in this folder
+5. Ask your instructor or classmates
+6. Search online for Python concepts you don't understand
 
 ## Next Steps
 
@@ -271,6 +273,8 @@ Ready to start? Great!
 
 ## Additional Resources
 
+- [Glossary](glossary.md) - **New!** Programming terms in simple English
+- [Troubleshooting](troubleshooting.md) - **New!** Common problems and solutions
 - [Git Introduction](git_intro.md) - Learn Git basics
 - [uv Guide](uv_guide.md) - Learn modern Python project management
 - [Official Python Tutorial](https://docs.python.org/3/tutorial/)

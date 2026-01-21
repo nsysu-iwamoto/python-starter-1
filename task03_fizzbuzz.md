@@ -83,10 +83,28 @@ The modulo operator returns the remainder of division.
 <details>
 <summary>Click to see hint 2: Order of conditions</summary>
 
-⚠️ **Important:** Check for multiples of 15 BEFORE checking for multiples of 3 or 5!
+⚠️ **Important:** You must check for multiples of 15 BEFORE checking for multiples of 3 or 5!
 
+**Why?** Because 15 is divisible by both 3 AND 5. If you check 3 first, you'll print "Fizz" and never get to "FizzBuzz".
+
+**Example: What happens with number 15?**
+- 15 % 3 == 0 → True (divisible by 3)
+- 15 % 5 == 0 → True (divisible by 5)
+- 15 % 15 == 0 → True (divisible by 15)
+
+**Wrong order** ❌:
 ```python
-if i % 15 == 0:
+if i % 3 == 0:      # This runs first for 15
+    print("Fizz")   # Prints "Fizz" and stops
+elif i % 5 == 0:    # Never reaches here
+    print("Buzz")
+elif i % 15 == 0:   # Never reaches here!
+    print("FizzBuzz")
+```
+
+**Correct order** ✅:
+```python
+if i % 15 == 0:     # Check 15 first!
     print("FizzBuzz")
 elif i % 3 == 0:
     print("Fizz")
@@ -96,7 +114,6 @@ else:
     print(i)
 ```
 
-Why? Because 15 is divisible by both 3 and 5!
 </details>
 
 <details>

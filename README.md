@@ -14,6 +14,8 @@ An Introductory exercise for numerical analysis, prepared for Sho's lecture cour
 
 - 📚 [Getting Started Guide](docs/getting_started.md) - Setup and how to complete tasks
 - 🔧 [Git Introduction](docs/git_intro.md) - Learn Git basics
+- 📖 [Glossary](docs/glossary.md) - **New!** Programming terms in simple English
+- 🔍 [Troubleshooting](docs/troubleshooting.md) - **New!** Common problems and solutions
 - ⚡ [uv Guide](docs/uv_guide.md) - **Optional:** Modern tools for motivated students
 
 ---
@@ -94,6 +96,8 @@ python-starter-1/
 ├── docs/                  # Documentation
 │   ├── getting_started.md # Setup guide
 │   ├── git_intro.md       # Git tutorial
+│   ├── glossary.md        # Programming terms in simple English
+│   ├── troubleshooting.md # Common problems and solutions
 │   └── uv_guide.md        # Optional: Modern tools
 ├── task*.md               # Task instructions
 ├── task*.py               # Your code
@@ -105,10 +109,11 @@ python-starter-1/
 
 ## Getting Help
 
-1. Read the documentation in the [`docs/`](docs/) folder
-2. Check error messages carefully
-3. Ask your instructor or classmates
-4. Search online for Python concepts
+1. **Check the [Glossary](docs/glossary.md)** for programming terms you don't understand
+2. **Check the [Troubleshooting Guide](docs/troubleshooting.md)** for common problems
+3. Read error messages carefully - they tell you what's wrong
+4. Ask your instructor or classmates
+5. Search online for Python concepts
 
 ---
 

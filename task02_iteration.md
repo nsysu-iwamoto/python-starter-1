@@ -19,11 +19,22 @@ In this task, you'll learn:
 
 Open `task02_iteration.py` and edit the file to do the following tasks.
 
-The function `show_one_to_ten()` currently shows numbers from 0 to 5, which is incorrect.
+The function `show_one_to_ten()` currently shows numbers from 0 to 5 (which is incorrect).
 
-**Correct the function so that the numbers from 1 to 10 are displayed.**
+**Fix the function so it prints numbers from 1 to 10.**
 
-### Expected Output
+### Current Output (Wrong)
+
+```
+0
+1
+2
+3
+4
+5
+```
+
+### Expected Output (Correct)
 
 ```
 1
@@ -149,13 +160,30 @@ Enter a number: 4
 
 You need to add suffixes based on the number:
 
-- Most numbers: add "th" (4th, 5th, 6th, ...)
-- Numbers ending in 1: add "st" (1st, 21st, 31st, ...)
-- Numbers ending in 2: add "nd" (2nd, 22nd, 32nd, ...)
-- Numbers ending in 3: add "rd" (3rd, 23rd, 33rd, ...)
-- **Special cases:** 11th, 12th, 13th (not 11st, 12nd, 13rd!)
+**Rules for ordinal numbers:**
+
+1. Numbers ending in 1 → add "st" (1st, 21st, 31st, ...)
+2. Numbers ending in 2 → add "nd" (2nd, 22nd, 32nd, ...)
+3. Numbers ending in 3 → add "rd" (3rd, 23rd, 33rd, ...)
+4. All other numbers → add "th" (4th, 5th, 6th, 7th, 8th, 9th, 10th, ...)
+
+**⚠️ Important exceptions:**
+
+- 11 → 11th (NOT 11st)
+- 12 → 12th (NOT 12nd)
+- 13 → 13th (NOT 13rd)
+
+**Why?** Numbers 11, 12, 13 are special cases. Even though they end in 1, 2, 3, they use "th".
+
+**Examples:**
+- 1 → 1st ✅
+- 11 → 11th ✅ (exception!)
+- 21 → 21st ✅
+- 12 → 12th ✅ (exception!)
+- 22 → 22nd ✅
 
 You can use `if-elif-else` statements and the modulo operator `%` to check the last digit.
+
 </details>
 
 ---
