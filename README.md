@@ -25,7 +25,7 @@ If you want to run "test codes" on your laptop, you need to install [`PyTest`](h
 
 ```bash
 # commands may be python3 and pip3 on your system,
-python --version  # Check version >= 3.8
+python --version  # Check version >= 3.11
 pip --version     # Check your pip is for correct Python version
 
 pip install pytest pytest-timeout
