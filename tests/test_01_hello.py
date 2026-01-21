@@ -1,5 +1,3 @@
-import io
-
 from conftest import assert_has_function, optional, remove_trailing, skip_if_no_function
 
 import task01_hello as task
@@ -41,7 +39,7 @@ def test_hello_world(capsys):
 @optional
 def test_hello_world_three_times(capsys):
     skip_if_no_function(task, "hello_world_three_times")
-    task.hello_world_three_times()
+    task.hello_world_three_times()  # ty: ignore[unresolved-attribute]
     out, _ = capsys.readouterr()
     actual = remove_trailing(out)
     assert actual.endswith(hw), f"output should end with '{hw}'"
@@ -59,7 +57,7 @@ def test_hello_world_n_times(capsys, monkeypatch):
         return n
 
     monkeypatch.setattr("builtins.input", lambda s: fake_input(4))
-    task.hello_world_n_times()
+    task.hello_world_n_times()  # ty: ignore[unresolved-attribute]
     out, _ = capsys.readouterr()
     actual = remove_trailing(out)
     assert actual.endswith(hw), f"output should end with '{hw}'"
@@ -78,7 +76,7 @@ def test_hello_world_n_times_more(capsys, monkeypatch):
 
     for n in [10, 50, 200]:
         monkeypatch.setattr("builtins.input", lambda s: fake_input(n))
-        task.hello_world_n_times()
+        task.hello_world_n_times()  # ty: ignore[unresolved-attribute]
         out, _ = capsys.readouterr()
         actual = remove_trailing(out)
         assert actual.endswith(hw), f"output should end with '{hw}'"

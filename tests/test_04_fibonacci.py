@@ -99,7 +99,7 @@ def test_fibonacci_to(capsys):
     for i in fibonacci_million:  # existing case
         if i == 1:
             continue
-        task.fibonacci_to(i)
+        task.fibonacci_to(i)  # ty: ignore[unresolved-attribute]
         out, _ = capsys.readouterr()
         actual = remove_trailing(out)
         expected = "\n".join(str(j) for j in fibonacci_million if j <= i)
@@ -108,7 +108,7 @@ def test_fibonacci_to(capsys):
         i = 1
         while i in fibonacci_million:
             i = random.randint(4, 1000000)
-        task.fibonacci_to(i)
+        task.fibonacci_to(i)  # ty: ignore[unresolved-attribute]
         out, _ = capsys.readouterr()
         actual = remove_trailing(out)
         assert "1\n1\n2" not in actual, f"should not output fibonacci if input is {i}"
@@ -123,7 +123,7 @@ def test_fibonacci_to_extreme(capsys):
     for i in range(2, 1000):
         s = s * i
         n = 5 * s * s  # must not be in fibonacci
-        task.fibonacci_to(n)
+        task.fibonacci_to(n)  # ty: ignore[unresolved-attribute]
         out, _ = capsys.readouterr()
         actual = remove_trailing(out)
         assert "1\n1\n2" not in actual, f"should not output fibonacci if input is {n}"
