@@ -2,6 +2,11 @@
   "cSpell.words": [
     "capsys",
     "fizzbuzz",
-    "Nabeatsu"
+    "Nabeatsu",
+    "pyproject",
+    "pytest",
+    "numpy",
+    "venv",
+    "pythonpath"
   ]
 }

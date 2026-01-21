@@ -68,7 +68,7 @@ def test_fizzbuzz_n_more(capsys):
 @optional
 def test_nabeatsu_4(capsys):
     skip_if_no_function(task, "nabeatsu")
-    task.nabeatsu(4)
+    task.nabeatsu(4)  # ty: ignore[unresolved-attribute]
     out, _ = capsys.readouterr()
     actual = remove_trailing(out)
     assert "1\n2\n" in actual, "Nabeatsu says 1 and 2 in a normal way"
@@ -79,7 +79,7 @@ def test_nabeatsu_4(capsys):
 @optional
 def test_nabeatsu_16(capsys):
     skip_if_no_function(task, "nabeatsu")
-    task.nabeatsu(16)
+    task.nabeatsu(16)  # ty: ignore[unresolved-attribute]
     out, _ = capsys.readouterr()
     lines = strip_all_lines(out)
     for i in [3, 6, 9, 12, 15, 13]:
@@ -92,7 +92,7 @@ def test_nabeatsu_16(capsys):
 def test_nabeatsu_more(capsys):
     skip_if_no_function(task, "nabeatsu")
     for n in [20, 100, 4000]:
-        task.nabeatsu(n)
+        task.nabeatsu(n)  # ty: ignore[unresolved-attribute]
         out, _ = capsys.readouterr()
         lines = strip_all_lines(out)
         start = -999

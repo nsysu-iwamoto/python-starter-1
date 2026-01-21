@@ -50,7 +50,7 @@ def test_show_one_to_n_more(capsys, monkeypatch, n):
 def test_show_one_to_n_ordinal_5(capsys, monkeypatch):
     skip_if_no_function(task, "show_one_to_n_ordinal")
     monkeypatch.setattr("sys.stdin", io.StringIO("5"))
-    task.show_one_to_n_ordinal()
+    task.show_one_to_n_ordinal()  # ty: ignore[unresolved-attribute]
     out, _ = capsys.readouterr()
     actual = remove_trailing(out)
     assert actual.endswith("5th"), "output should end with '5th' if input is 5."
@@ -61,7 +61,7 @@ def test_show_one_to_n_ordinal_5(capsys, monkeypatch):
 def test_show_one_to_n_ordinal_1(capsys, monkeypatch):
     skip_if_no_function(task, "show_one_to_n_ordinal")
     monkeypatch.setattr("sys.stdin", io.StringIO("1"))
-    task.show_one_to_n_ordinal()
+    task.show_one_to_n_ordinal()  # ty: ignore[unresolved-attribute]
     out, _ = capsys.readouterr()
     actual = remove_trailing(out)
     assert actual.endswith("1st"), "output should end with '1st' if input is 1."
@@ -73,7 +73,7 @@ def test_show_one_to_n_ordinal_more(capsys, monkeypatch):
     for n in [5, 20, 100, 200]:
         skip_if_no_function(task, "show_one_to_n_ordinal")
         monkeypatch.setattr("sys.stdin", io.StringIO(f"{n}"))
-        task.show_one_to_n_ordinal()
+        task.show_one_to_n_ordinal()  # ty: ignore[unresolved-attribute]
         out, _ = capsys.readouterr()
         actual = remove_trailing(out)
 
@@ -81,7 +81,7 @@ def test_show_one_to_n_ordinal_more(capsys, monkeypatch):
         num = re.sub(r"[a-zA-Z]", "x", out)
         num = re.sub(r"\s+$", "", num, flags=re.M)
         assert num.endswith(f"{n}xx"), f"output should end with {n}xx for input {n}"
-        num_expected = ("\n".join(f"{i+1}xx" for i in range(n))).strip()
+        num_expected = ("\n".join(f"{i + 1}xx" for i in range(n))).strip()
         assert num_expected in num, f"output should have 1 to {n}"
 
         for line in actual.splitlines():
