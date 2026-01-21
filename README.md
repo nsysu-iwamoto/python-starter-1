@@ -1,27 +1,56 @@
 # python-starter-1
 
-An Introduction to Python for Numerical Analysis
+An Introductory exercise for numerical analysis (Step 1), prepared for Sho's lecture course “[Math and Coding in Physics](https://www2.nsysu.edu.tw/iwamoto/physmath2.html)”.
+
+## 🚀 Quick Start
+
+**New to this course? Start here!**
+
+👉 **[Getting Started Guide](docs/getting_started.md)** - Complete setup instructions
+
+### Essential Guides
+
+- 📚 [Getting Started Guide](docs/getting_started.md) - Setup and how to complete tasks
+- 🔧 [Git Introduction](docs/git_intro.md) - Learn Git basics
+- ⚡ [uv Guide](docs/uv_guide.md) - **Optional:** Modern tools for motivated students
 
 ## Tasks
 
-- [ ] 1. [Hello, World!](/task01_hello.md)
-- [ ] 2. [Iteration](/task02_iteration.md)
-- [ ] 3. [FizzBuzz](/task03_fizzbuzz.md)
-- [ ] 4. [Fibonacci sequence](/task04_fibonacci.md)
+- [ ] 1. [Hello, World!](task01_hello.md) - Basic functions and output
+- [ ] 2. [Iteration](task02_iteration.md) - Loops and user input
+- [ ] 3. [FizzBuzz](task03_fizzbuzz.md) - Conditionals and logic
+- [ ] 4. [Fibonacci sequence](task04_fibonacci.md) - Combining concepts
 
-Open each `.md` file. Following the instructions, edit `.py` files.
+Each task includes:
 
-You can edit `.py` files on GitHub, but it is recommended to code on your computer. Following Git/GitHub starter, you are asked to
+- Basic problems (required)
+- Optional problems (advanced, for extra learning)
 
-- **clone** this GitHub repository (*remote repository*) to your computer,
-- edit your files on your computer,
-- **commit** your changes to the repository in your computer (*local repository*), and
-- **push** your local repository to the *remote repository* on GitHub.
-- Then, if you can, try **creating a pull request** following [this instruction](/misc/github_pull_request.pdf).
+## How to Work on Tasks
 
-## How to run test codes
+### Method 1: Edit on GitHub (Simplest)
 
-If you want to run "test codes" on your laptop, you need to install [`PyTest`](https://pytest.org/) and `PyTest-Timeout`, which can be installed using `pip` (using a virtual environment is recommended but optional):
+You can edit `.py` files directly on GitHub through your web browser.
+
+### Method 2: Work on Your Computer (Recommended)
+
+**This is the recommended approach for learning Git and proper development workflow.**
+
+1. **Clone** this repository to your computer
+2. **Edit** files on your computer
+3. **Test** your code locally
+4. **Commit** your changes
+5. **Push** to GitHub
+
+See the [Getting Started Guide](docs/getting_started.md) for detailed instructions.
+
+## Testing Your Code
+
+You may "test" your code automatically. Test system is provided on the GitHub, but you can run the tests on your computer if you install some tools.
+
+### Setup
+
+To run tests on your computer, you need to install `pytest` and `pytest-timeout`:
 
 ```bash
 # commands may be python3 and pip3 on your system,
@@ -31,10 +60,32 @@ pip --version     # Check your pip is for correct Python version
 pip install pytest pytest-timeout
 ```
 
-Try `python -m pytest` on the root directory of this repository (i.e., where this file is).
+Detailed setup instructions are provided in [Getting Started Guide](docs/getting_started.md).
 
-If you want to test your code for optional problems, run `python -m pytest --optionial`.
+**Motivated students** should also learn modern Python tools: see [uv Guide](docs/uv_guide.md) for details.
 
-If you want to run a specific test file, you can use `python -m pytest -k tests/test_file_name.py`.
+### Running Tests
 
-(But test codes may have bugs because you are the first tester of these tests! Please let me know if you find any problems.)
+```bash
+# Run all tests
+python -m pytest
+
+# Run tests for a specific task
+python -m pytest tests/test_01_hello.py -v
+
+# Include optional problems
+python -m pytest --optional
+```
+
+**Note:** Test codes may have bugs - you are the first testers! Please report any issues.
+
+## Getting Help
+
+1. Read the documentation in the [`docs/`](docs/) folder
+2. Check error messages carefully
+3. Ask your instructor or classmates
+4. Search online for Python concepts
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.

@@ -1,10 +1,10 @@
-# Task 01: Hello, World!
+# Task 04: Fibonacci
 
 
 def fibonacci(goal):
-    pass
+    pass  # TODO: Replace this with your code to generate Fibonacci sequence
 
 
-if __name__ == "__main__":  # the main part
+if __name__ == "__main__":  # Main execution block
     goal = int(input("Enter a number: "))
     fibonacci(goal)

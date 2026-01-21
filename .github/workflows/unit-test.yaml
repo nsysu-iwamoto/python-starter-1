@@ -17,13 +17,13 @@ jobs:
     name: Run unit tests
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
       - name: Setup Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v6
         with:
           python-version: "3.14"
       - name: Set up packages
-        run: pip install -r requirements.txt
+        run: pip install pytest pytest-timeout
       - name: Run tests with pytest
         run: python -m pytest --junitxml=junit/test-results.xml
       #      - name: Upload test results
