@@ -126,4 +126,4 @@ def test_fibonacci_to_extreme(capsys):
         task.fibonacci_to(n)
         out, _ = capsys.readouterr()
         actual = remove_trailing(out)
-        assert "1\n1\n2" not in actual, f"should not output fibonacci if input is {i}"
+        assert "1\n1\n2" not in actual, f"should not output fibonacci if input is {n}"
