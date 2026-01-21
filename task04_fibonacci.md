@@ -11,7 +11,9 @@ In this task, you'll learn:
 - How to maintain state across loop iterations
 - How to implement algorithms
 
-**Note:** We assume the Fibonacci sequence begins with 1, 1, 2, 3, 5, 8, ...
+**Note:** In this course, the Fibonacci sequence starts with: **1, 1, 2, 3, 5, 8, ...**
+
+(Some definitions start with 0, 1, but we use 1, 1 for simplicity.)
 
 ---
 
