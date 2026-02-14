@@ -57,13 +57,13 @@ Most students should use this method. In your terminal, run:
 
 ```bash
 python -m pip install pytest pytest-timeout
+# or, on some systems,
+# python3 -m pip install pytest pytest-timeout
 ```
 
-**Note:** On some systems, you may need to use `python3` instead of `python`.
-
-**Why `python -m pip`?** This ensures pip installs packages for the correct Python version you're using. If you have multiple Python versions installed, using just `pip` might install to the wrong one.
-
 Notice that this operation installs packages globally, affecting all of your Python projects. This is generally fine for beginners, but potentially causes version conflicts in your future work. The modern standard to avoid this issue is to use `uv`.
+
+**Why `python -m pip install` instead of `pip install`?** This ensures you are using `pip` for the correct Python executable you're using. If you have multiple Python versions installed, using just `pip` might install to the wrong one.
 
 #### Method 2: Using uv (Optional - For Motivated Students)
 
@@ -121,7 +121,7 @@ For each task (e.g., Task 01):
 
 3. **Run your code**
 
-   **In your terminal**, execute your Python file to see if it works:
+   In your terminal, execute your Python file to see if it works:
 
    ```bash
    python task01_hello.py
@@ -129,7 +129,7 @@ For each task (e.g., Task 01):
 
 4. **Test your code on terminal**
 
-   **In your terminal**, run the automated tests to verify your solution:
+   In your terminal, run the automated tests to verify your solution:
 
    ```bash
    # Run tests for this specific task
@@ -138,7 +138,7 @@ For each task (e.g., Task 01):
 
 5. **Commit your changes**
 
-   **In your terminal**, save your work with Git:
+   In your terminal, save your work with Git:
 
    ```bash
    git add task01_hello.py
@@ -147,7 +147,7 @@ For each task (e.g., Task 01):
 
 6. **Push to GitHub**
 
-   **In your terminal**, upload your work to GitHub:
+   In your terminal, upload your work to GitHub:
 
    ```bash
    git push
@@ -155,7 +155,7 @@ For each task (e.g., Task 01):
 
 ### Testing Your Work
 
-**All commands below should be run in your terminal.**
+All commands below should be run in your terminal.
 
 #### Run all tests
 
