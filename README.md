@@ -52,20 +52,20 @@ You may "test" your code automatically. Test system is provided on the GitHub, b
 
 To run tests on your computer, you need to install `pytest` and `pytest-timeout`.
 
-**Open your terminal (Command Prompt/PowerShell on Windows, Terminal on Mac/Linux) and run:**
+**Open your terminal** (Command Prompt on Windows / Terminal on Mac or Linux) **and run:**
 
 ```bash
 # First, check your Python version (should be >= 3.11)
 python --version
 
-# Install testing tools (recommended method)
+# Install testing tools
 python -m pip install pytest pytest-timeout
 
 # Alternative: Install from requirements.txt
 python -m pip install -r requirements.txt
 ```
 
-**Note:** On some systems, you may need to use `python3` and `pip3` instead of `python` and `pip`.
+**Note:** On some systems, you may need to use `python3` instead of `python`.
 
 Detailed setup instructions are provided in [Getting Started Guide](docs/getting_started.md).
 

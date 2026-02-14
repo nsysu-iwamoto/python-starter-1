@@ -29,7 +29,7 @@ Before starting, you should have:
 
 First, you need to download this repository to your computer.
 
-1. Open your terminal (Terminal on Mac/Linux, Command Prompt or PowerShell on Windows)
+1. Open your terminal (Command Prompt on Windows / Terminal on Mac or Linux)
 2. Navigate to where you want to save the project:
 
    ```bash
@@ -49,14 +49,13 @@ First, you need to download this repository to your computer.
 
 You need to install testing tools to check your work.
 
-**Open your terminal (Command Prompt/PowerShell on Windows, Terminal on Mac/Linux)** and navigate to your project directory.
+**Open your terminal** (Command Prompt on Windows / Terminal on Mac or Linux) **and navigate to your project directory.**
 
-#### Method 1: Using pip (Recommended for Beginners)
+#### Using pip (Recommended for Beginners)
 
-Most students should use this method. In your terminal, run:
+Most students should use this method. **In your terminal**, run:
 
 ```bash
-# Recommended: Use python -m pip to ensure correct Python version
 python -m pip install pytest pytest-timeout
 
 # Alternative: Install from requirements.txt file
@@ -65,11 +64,11 @@ python -m pip install -r requirements.txt
 
 **Note:** On some systems, you may need to use `python3` instead of `python`.
 
-**Why `python -m pip`?** This ensures pip installs packages for the correct Python version you're using. If you have multiple Python versions installed, using just `pip` might install to the wrong one.
+**Why `python -m pip`?** This ensures pip installs packages for the correct Python version you're using. If you have multiple Python versions installed, just using `pip` might install to the wrong one.
 
 Notice that this operation installs packages globally, affecting all of your Python projects. This is generally fine for beginners, but potentially causes version conflicts in your future work. The modern standard to avoid this issue is to use `uv`.
 
-#### Method 2: Using uv (Optional - For Motivated Students)
+#### Using uv (Optional - For Motivated Students)
 
 *⚠️ This is optional and only for students who want to learn modern tools!*
 
@@ -236,15 +235,12 @@ print(f"Debug: x = {x}")  # See what values variables have
 
 ### "ModuleNotFoundError: No module named 'pytest'"
 
-**Solution**: Install dependencies (see Step 2 above)
+**Solution**: Install dependencies using `python -m pip` (see Step 2 above)
 
-**If `pip install pytest pytest-timeout` doesn't work**, try:
+**If the installation doesn't work**, try:
 
 ```bash
-# Use python -m pip instead (this is often more reliable)
-python -m pip install pytest pytest-timeout
-
-# Or try python3 if you have multiple Python versions
+# Try with python3 if you have multiple Python versions
 python3 -m pip install pytest pytest-timeout
 ```
 
