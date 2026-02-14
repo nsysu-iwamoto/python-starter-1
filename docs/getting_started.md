@@ -49,21 +49,23 @@ First, you need to download this repository to your computer.
 
 You need to install testing tools to check your work.
 
-#### Standard Method: Using pip (Recommended)
+**Open your terminal (Command Prompt/PowerShell on Windows, Terminal on Mac/Linux)** and navigate to your project directory.
 
-Most students should use this method:
+#### Method 1: Using pip (Recommended for Beginners)
+
+Most students should use this method. In your terminal, run:
 
 ```bash
-pip install pytest pytest-timeout
-# or:
-# pip install -r requirements.txt
+python -m pip install pytest pytest-timeout
 ```
 
-Notice, however, that this operation installs packages globally, affecting all of your Python projects.
+**Note:** On some systems, you may need to use `python3` instead of `python`.
 
-This is generally fine for beginners, but potentially causes version conflicts in your future work. The modern standard to avoid this issue is to use `uv`.
+**Why `python -m pip`?** This ensures pip installs packages for the correct Python version you're using. If you have multiple Python versions installed, using just `pip` might install to the wrong one.
 
-#### Advanced Alternative: Using uv (Optional - For Motivated Students)
+Notice that this operation installs packages globally, affecting all of your Python projects. This is generally fine for beginners, but potentially causes version conflicts in your future work. The modern standard to avoid this issue is to use `uv`.
+
+#### Method 2: Using uv (Optional - For Motivated Students)
 
 *⚠️ This is optional and only for students who want to learn modern tools!*
 
@@ -71,13 +73,13 @@ If you're interested in learning cutting-edge Python development practices, see 
 
 ### Step 3: Verify Installation
 
-Test that everything is working:
+**In your terminal**, test that everything is working:
 
 ```bash
 python -m pytest --version
 ```
 
-You should see pytest version information.
+You should see pytest version information (e.g., `pytest 9.0.2`).
 
 ## Understanding the Project Structure
 
@@ -96,12 +98,11 @@ python-starter-1/
 ├── task03_fizzbuzz.py     # Your code for task 3
 ├── task04_fibonacci.md    # Task 4 instructions
 ├── task04_fibonacci.py    # Your code for task 4
-├── tests/                 # Test files
-│   ├── test_01_hello.py   # Tests for task 1
-│   ├── test_02_iteration.py
-│   ├── test_03_fizzbuzz.py
-│   └── test_04_fibonacci.py
-└── requirements.txt       # Python dependencies
+└── tests/                 # Test files
+    ├── test_01_hello.py   # Tests for task 1
+    ├── test_02_iteration.py
+    ├── test_03_fizzbuzz.py
+    └── test_04_fibonacci.py
 ```
 
 ## How to Complete Tasks
@@ -112,31 +113,32 @@ For each task (e.g., Task 01):
 
 1. **Read the instructions**
 
-   ```bash
-   # Open task01_hello.md in your text editor
-   ```
+   Open `task01_hello.md` in your text editor to read what you need to do.
 
 2. **Edit the Python file**
 
-   ```bash
-   # Edit task01_hello.py
-   # Complete the function according to the instructions
-   ```
+   Open `task01_hello.py` in your text editor and complete the function according to the instructions.
 
 3. **Run your code**
+
+   **In your terminal**, execute your Python file to see if it works:
 
    ```bash
    python task01_hello.py
    ```
 
-4. **Test your code**
+4. **Test your code on terminal**
+
+   **In your terminal**, run the automated tests to verify your solution:
 
    ```bash
-   # Run tests for this task
+   # Run tests for this specific task
    python -m pytest tests/test_01_hello.py -v
    ```
 
 5. **Commit your changes**
+
+   **In your terminal**, save your work with Git:
 
    ```bash
    git add task01_hello.py
@@ -145,11 +147,15 @@ For each task (e.g., Task 01):
 
 6. **Push to GitHub**
 
+   **In your terminal**, upload your work to GitHub:
+
    ```bash
    git push
    ```
 
 ### Testing Your Work
+
+**All commands below should be run in your terminal.**
 
 #### Run all tests
 
@@ -226,6 +232,16 @@ print(f"Debug: x = {x}")  # See what values variables have
 ### "ModuleNotFoundError: No module named 'pytest'"
 
 **Solution**: Install dependencies (see Step 2 above)
+
+**If `pip install pytest pytest-timeout` doesn't work**, try:
+
+```bash
+# Use python -m pip instead (this is often more reliable)
+python -m pip install pytest pytest-timeout
+
+# Or try python3 if you have multiple Python versions
+python3 -m pip install pytest pytest-timeout
+```
 
 ### "python: command not found"
 
